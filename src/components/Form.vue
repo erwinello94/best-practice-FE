@@ -5,7 +5,7 @@
                 <input type="text" v-model="isbn_number" class="form-control" id="inlineFormInput" placeholder="ISBN barcode number">
             </div>
             <div class="col-sm-2">
-            <button type="submit" class="btn btn-warning">Calculate</button>
+            <button type="submit" class="btn btn-outline-warning">Calculate</button>
             </div>
         </div>
     </form>
@@ -27,26 +27,21 @@
                     return
                 }
 
-                if(this.isbn_number.length > 12 || this.isbn_number.length === 0){
+                if(this.isbn_number.length > 12 || this.isbn_number.length < 12 ){
                     alert("Only 12 length applicable numbers!")
                     return
                 }
 
                 var number = this.isbn_number
-                var odd = 0, 
-                even = 0,
-                multiply = 0,
-                sum = 0
+                var multiply = 0, sum = 0
                 var str = '', strArray = ''
                 for (let i = 0; i < number.length; i++) {
                     if (i % 2 == 0) {
-                        odd = number[i]
-                        multiply = odd * 1
-                        strArray = '(' + odd +' x 1)'
+                        multiply = number[i] * 1
+                        strArray = '(' + number[i] +' x 1)'
                     } else if (i % 2 == 1) {
-                        even = number[i]
-                        multiply = even * 3
-                        strArray = '(' + even +' x 3)'
+                        multiply = number[i] * 3
+                        strArray = '(' + number[i] +' x 3)'
                     }
                     str += strArray
                     sum += multiply
