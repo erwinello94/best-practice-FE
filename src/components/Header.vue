@@ -8,9 +8,7 @@
 export default {
     name: 'Header'
 }
-
 </script>
-
 <style scoped>
     header {
         display: flex;

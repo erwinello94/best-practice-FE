@@ -1,5 +1,4 @@
 <template>
-    <br/>
     <p>1. {{ barcode.firstResult }}</p>
     <p>2. {{ barcode.secondResult }}</p>
     <p>3. {{ barcode.thirdResult }}</p>

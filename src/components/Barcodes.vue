@@ -1,18 +1,17 @@
 <template>
     <div v-for="barcode in barcodes">
-        <Result :barcode="barcode" />
+        <Table :barcode="barcode" />
     </div>
 </template>
-
 <script>
-import Result from './Result.vue'
+import Table from './Table.vue'
     export default {
         name: 'Barcodes',
         props: {
             barcodes: Array
         },
         components: {
-            Result,
+            Table
         }
     }
 </script>

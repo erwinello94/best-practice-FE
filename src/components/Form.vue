@@ -51,6 +51,7 @@
                 var subFourthRes = 10 - remainder
                 var fourthRes = '10 - '+ remainder+ ' = ' + subFourthRes
                 const newBarcode = {
+                    isbnNumber: this.isbn_number,
                     firstResult: str,
                     secondResult: sum,
                     thirdResult: thirdRes,
@@ -66,4 +67,7 @@
 </script>
 
 <style>
+.row {
+    padding-bottom: 5%;
+}
 </style>
