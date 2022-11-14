@@ -23,12 +23,17 @@
             onSubmit(e){
                 e.preventDefault()
                 if(isNaN(this.isbn_number)){
-                    alert("ISBN number is not applicable for any characters!")
+                    this.$swal.fire({
+                        icon: 'error',
+                        text: 'ISBN number is not applicable for any characters!',
+                    })
                     return
                 }
-
                 if(this.isbn_number.length > 12 || this.isbn_number.length < 12 ){
-                    alert("Only 12 length applicable numbers!")
+                    this.$swal.fire({
+                        icon: 'error',
+                        text: 'Only 12 length applicable numbers!',
+                    })
                     return
                 }
 
@@ -59,9 +64,19 @@
                     fifthResult: this.isbn_number + subFourthRes
                 }
                 console.log(newBarcode)
-                this.$emit('add-barcode', newBarcode)
-                this.isbn_number = '' 
+                if (newBarcode != null){
+                    this.$swal.fire({
+                        icon: 'success',
+                        title: 'Barcode has been calculated',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    this.$emit('add-barcode', newBarcode)
+                    this.isbn_number = '' 
+                    saveNewBarcode(newBarcode)
+                }
             }
+
         }
     }
 </script>
